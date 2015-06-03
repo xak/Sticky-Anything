@@ -9,6 +9,7 @@
     var settings = $.extend({
       // Default
       top: 0,
+      offsetDifference: 0,
       minscreenwidth: 0, 
       maxscreenwidth: 99999,       
       zindex: 1,
@@ -43,7 +44,7 @@
 function stickIt(stickyTop,minwidth,maxwidth) {
 
   var orgElementPos = $('.original').offset();
-  orgElementTop = orgElementPos.top;
+  orgElementTop = orgElementPos.top + settings.offsetDifference;
 
   // Calculating actual viewport width
   var e = window, a = 'inner';
