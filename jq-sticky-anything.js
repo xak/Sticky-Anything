@@ -10,6 +10,8 @@
       // Default
       top: 0,
       offsetDifference: 0,
+      visibleClass: 'is-visible',
+      hiddenClass: 'is-hidden',
       minscreenwidth: 0, 
       maxscreenwidth: 99999,       
       zindex: 1,
@@ -43,8 +45,12 @@
 
 function stickIt(settings) {
 
-  var orgElementPos = $('.original').offset();
+  var $cloned = $('.cloned');
+  var $original = $('.original');
+  
+  var orgElementPos = $original.offset();
   orgElementTop = orgElementPos.top + settings.offsetDifference;
+
 
   // Calculating actual viewport width
   var e = window, a = 'inner';
@@ -59,17 +65,19 @@ function stickIt(settings) {
     // scrolled past the original position; now only show the cloned, sticky element.
 
     // Cloned element should always have same left position and width as original element.
-    orgElement = $('.original');
+    orgElement = $original;
     coordsOrgElement = orgElement.offset();
     leftOrgElement = coordsOrgElement.left;
     widthOrgElement = orgElement.css('width');
 
-    $('.cloned').css('left',leftOrgElement+'px').css('top',settings.top+'px').css('width',widthOrgElement).show();
-    $('.original').css('visibility','hidden');
+    $cloned.css('left',leftOrgElement+'px').css('top',settings.top+'px').css('width',widthOrgElement).show().addClass(settings.visibleClass);
+    $original.removeClass(settings.visibleClass)//.css('visibility','hidden');
+    
+    
   } else {
     // not scrolled past the menu; only show the original menu.
-    $('.cloned').hide();
-    $('.original').css('visibility','visible');
+    $cloned.removeClass(settings.visibleClass).hide();
+    $original.addClass(settings.visibleClass)//.css('visibility','visible');
   }
 }
 
