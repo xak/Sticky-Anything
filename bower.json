@@ -6,7 +6,7 @@
   "_resolution": {
     "type": "version",
     "tag": "1.1.5",
-    "commit": "216eda052605c10a1ae4b842b3282f44f9af5f5a"
+    "commit": "f9500820a493e2fccab6a40b2248ff2c981eed90"
   },
   "_source": "git://github.com/xak/Sticky-Anything.git",
   "_target": "*",
