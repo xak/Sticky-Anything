@@ -1,0 +1,6 @@
+{
+  "name": "stickyanything",
+  "homepage": "https://github.com/xak/Sticky-Anything",
+  "version": "1.1.4",
+  "main": "jq-sticky-anything.js"
+}
