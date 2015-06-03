@@ -41,7 +41,7 @@
   };
 
 
-function stickIt(stickyTop,minwidth,maxwidth) {
+function stickIt(settings) {
 
   var orgElementPos = $('.original').offset();
   orgElementTop = orgElementPos.top + settings.offsetDifference;
@@ -54,7 +54,7 @@ function stickIt(stickyTop,minwidth,maxwidth) {
   }
   viewport = e[ a+'Width' ];
 
-  if (($(window).scrollTop() >= (orgElementTop - stickyTop)) && (viewport >= minwidth) && (viewport <= maxwidth)) {
+  if (($(window).scrollTop() >= (orgElementTop - settings.top)) && (viewport >= settings.minwidth) && (viewport <= settings.maxwidth)) {
 
     // scrolled past the original position; now only show the cloned, sticky element.
 
@@ -64,7 +64,7 @@ function stickIt(stickyTop,minwidth,maxwidth) {
     leftOrgElement = coordsOrgElement.left;
     widthOrgElement = orgElement.css('width');
 
-    $('.cloned').css('left',leftOrgElement+'px').css('top',stickyTop+'px').css('width',widthOrgElement).show();
+    $('.cloned').css('left',leftOrgElement+'px').css('top',settings.top+'px').css('width',widthOrgElement).show();
     $('.original').css('visibility','hidden');
   } else {
     // not scrolled past the menu; only show the original menu.
