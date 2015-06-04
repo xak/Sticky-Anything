@@ -35,7 +35,7 @@
       }
     } else {
       // Create a clone of the menu, right next to original (in the DOM).
-      $(this).addClass('original').clone().insertAfter(this).addClass('cloned').css('position','fixed').css('top',settings.top+'px').css('margin-top','0').css('margin-left','0').css('z-index',settings.zindex).removeClass('original').hide();
+      $(this).addClass('original').clone().insertAfter(this).addClass('cloned').css('position','fixed').css('top',settings.top+'px').css('margin-top','0').css('margin-left','0').css('z-index',settings.zindex).removeClass('original')//.hide();
       checkElement = setInterval(function(){stickIt(settings)},10);
     }
 
@@ -70,13 +70,13 @@ function stickIt(settings) {
     leftOrgElement = coordsOrgElement.left;
     widthOrgElement = orgElement.css('width');
 
-    $cloned.css('left',leftOrgElement+'px').css('top',settings.top+'px').css('width',widthOrgElement).show().addClass(settings.visibleClass);
+    $cloned.css('left',leftOrgElement+'px').css('top',settings.top+'px').css('width',widthOrgElement).addClass(settings.visibleClass);
     $original.removeClass(settings.visibleClass)//.css('visibility','hidden');
     
     
   } else {
     // not scrolled past the menu; only show the original menu.
-    $cloned.removeClass(settings.visibleClass).hide();
+    $cloned.removeClass(settings.visibleClass)//.hide();
     $original.addClass(settings.visibleClass)//.css('visibility','visible');
   }
 }
